@@ -9,3 +9,5 @@ Starship data from https://neoencyclopedia.fandom.com/wiki/List_of_Starfleet_sta
 
 Stellar data from RECONS (Research Consortium On Nearby Stars)
 http://www.astro.gsu.edu/RECONS/TOP100.posted.htm
+
+Secret ships from Iain M. Banks' Culture series of novels - listing at https://theculture.fandom.com/wiki/List_of_spacecraft_in_the_Culture_series
