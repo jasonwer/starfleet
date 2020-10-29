@@ -1,0 +1,5 @@
+-- RUN WITHIN your new localstars_db Database
+
+create table localstars(Ranking integer,Name varchar,Member varchar,LCS varchar,Rahh real,Ramm real,Rasss real,DecDeg real,DecMin real,DecSec real,parallax double precision,distance_ly double precision,spectral_type varchar,mass double precision,common_name varchar);
+
+\copy localstars FROM '/YOUR_REPO_LOCATION/data/recons_top_100.csv' WITH DELIMITER ',' CSV HEADER;

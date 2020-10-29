@@ -1,0 +1,5 @@
+-- Run within your new starship_db Database
+
+create table starships(Name varchar, Registry varchar, LastKnownPositionRA double precision, LastKnownPositionDec double precision, LastKnownPositionDistance double precision, Significance varchar, Class varchar, TopSecret bool);
+
+\copy starships FROM '/YOUR_REPO_LOCATION/data/starships.csv' WITH DELIMITER ',' CSV HEADER;
