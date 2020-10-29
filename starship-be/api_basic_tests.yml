@@ -1,0 +1,12 @@
+---
+- config:
+    - testset: "Starship API tests"
+    - timeout: 10  # seconds
+- test:
+    - name: "Basic get"
+    - url: "/starships"
+- test:
+    - name: "Get single starship"
+    - url: "/starships/42"
+
+
