@@ -1,0 +1,12 @@
+---
+- config:
+    - testset: "Localstars API tests"
+    - timeout: 10  # seconds
+- test:
+    - name: "Basic get"
+    - url: "/stars"
+- test:
+    - name: "Get single star"
+    - url: "/stars/42"
+
+
