@@ -1,10 +1,12 @@
 import sys
 import psycopg2
 from flask import Flask
+from flask_cors import CORS
 from flask_restful import reqparse, abort, Api, Resource
 from psycopg2.extras import RealDictCursor
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 api = Api(app)
 
 # abort(404, message="something weird happened".format(starship_id))
@@ -44,13 +46,13 @@ class StarShipList(Resource):
         return res
 
 try:
-    ######################3
-    api.add_resource(StarShipList, '/starships')
-    api.add_resource(StarShip, '/starships/<string:starship_id>')
-    ###########################3
+    ######################
+    api.add_resource(StarShipList, '/api/v1/starships')
+    api.add_resource(StarShip, '/api/v1/starship/<string:starship_id>')
+    ###########################
 
     if __name__ == "__main__":
-        app.run(host='0.0.0.0', threaded=True)
+        app.run(host='0.0.0.0',port=5500, threaded=True)
 
 except psycopg2.DatabaseError as e:
 
