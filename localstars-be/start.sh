@@ -1,3 +1,3 @@
 #!/bin/bash
-cd flask-api-example
+cd /starfleet/localstars-be/
 python api.py
