@@ -1,5 +1,6 @@
 import sys
 import psycopg2
+import logging
 from flask import Flask
 from flask_cors import CORS
 from flask_restful import reqparse, abort, Api, Resource
@@ -33,6 +34,10 @@ class Star(Resource):
         sql = """SELECT name, common_name, spectral_type, mass,distance_ly FROM localstars WHERE name = """ + star_id + """ ;"""
         cur.execute(sql)
         res = cur.fetchall()
+        if cur.rowcount = 0:
+            logging.info("Star record with id " + star_id + " does not exist. No record returned.")
+        else:
+            logging.info("Star record with id " + star_id + " returned.")
         return res
             
 
@@ -43,6 +48,10 @@ class StarList(Resource):
         sql = """SELECT name, common_name, spectral_type, mass,distance_ly FROM localstars;"""
         cur.execute(sql)
         res = cur.fetchall()
+        if cur.rowcount = 0:
+            logging.warning("No star records exist. Have you loaded the data?")
+        else:
+            logging.info("Star listing returned")
         return res
 
 try:
@@ -57,11 +66,13 @@ try:
 except psycopg2.DatabaseError as e:
 
     print(f'Error {e}')
+    logging.error(f'Error {e}')
     sys.exit(1)
 
 except IOError as e:
 
     print(f'Error {e}')
+    logging.error(f'Error {e}')
     sys.exit(1)
 
 finally:
